@@ -1,5 +1,5 @@
 <?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:41:"./application/index/view/index_index.html";i:1503144775;s:43:"./application/index/view/public_script.html";i:1503144775;s:40:"./application/index/view/public_nav.html";i:1502438616;s:41:"./application/index/view/public_left.html";i:1502714364;}*/ ?>
-
+ 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
