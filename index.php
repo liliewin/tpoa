@@ -16,7 +16,7 @@ define('APP_PATH',  './application/');
 // 加载框架引导文件
 define('APP_NAME',  'application/');
 
-define('__ROOT__',  '/'.'wywloa/');//根目录
+define('__ROOT__',  '/'.'');//根目录
 
 define('__UPLOAD__', dirname(__FILE__).'/upload/');//上传目录的常量
 

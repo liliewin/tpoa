@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:41:"./application/index/view/login_index.html";i:1503139166;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:41:"./application/index/view/login_index.html";i:1503144622;}*/ ?>
 
 <!DOCTYPE html>
 <html lang="en" class="no-js">
@@ -19,7 +19,7 @@
 
     <script src="__INDEX__/jquerylogin/js/jquery.js" type="text/javascript" ></script>
     <script src="__INDEX__/jquerylogin/js/supersized.3.2.7.min.js"></script>
-    <LINK href="/favicon.ico" type="image/x-icon" rel=icon>
+    <LINK href="favicon.ico" type="image/x-icon" rel=icon>
 </head>
 
 <body oncontextmenu="return false">
