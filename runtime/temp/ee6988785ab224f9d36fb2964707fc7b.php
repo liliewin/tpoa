@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:51:"./application/index/view/ordermanage_orderlist.html";i:1502978562;s:43:"./application/index/view/public_script.html";i:1502449502;s:40:"./application/index/view/public_nav.html";i:1502438616;s:41:"./application/index/view/public_left.html";i:1502714364;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:51:"./application/index/view/ordermanage_orderlist.html";i:1502978562;s:43:"./application/index/view/public_script.html";i:1503139106;s:40:"./application/index/view/public_nav.html";i:1502438616;s:41:"./application/index/view/public_left.html";i:1502714364;}*/ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -16,16 +16,13 @@
     <script src="__INDEX__/script/jquery.cookie.js" type="text/javascript"></script>
     <script src="__STATIC__/bootstrap-3.3.5-dist/js/bootstrap.min.js" type="text/javascript"></script  >
     <script src="__STATIC__/layer/layer.js" type="text/javascript"></script>
-
     <script src="__INDEX__/script/index.js" type="text/javascript"></script>
-
-
     <!--angular ui--->
     <link rel="stylesheet" title="" type="text/css" href="__INDEX__/ui-layout-0.0.0/ui-layout.css"/>
     <script src="__INDEX__/script/angular.min.js"></script>
     <script src="__INDEX__/ui-layout-0.0.0/ui-layout.js"></script>
 
-
+    <LINK href="/favicon.ico" type="image/x-icon" rel=icon>
 
 
 </head>
