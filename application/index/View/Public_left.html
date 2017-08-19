@@ -1,0 +1,48 @@
+<div class="left-main left-full">
+    <div class="sidebar-fold"><span class="glyphicon glyphicon-menu-hamburger"></span></div>
+    <div class="subNavBox">
+        <div class="sBox">
+            <div class="subNav sublist-down"><span class="title-icon glyphicon glyphicon-chevron-down"></span><span class="sublist-title">订单管理</span>
+            </div>
+            <ul class="navContent" style="display:block">
+                {if condition="empty($titleid)"}
+
+                {assign name="titleid" value="0" /}
+                {/if}
+
+                <li    {if condition="$titleid eq 3 "}class="active"  {/if} >
+                    <div class="showtitle" style="width:100px;"><img src="__INDEX__/img/leftimg.png" />外接订单</div>
+                    <a href="{:U('Ordermanage/orderlist' ,['titleid' => 3] )}"><span class="sublist-icon glyphicon glyphicon-user"></span><span class="sub-title">外接订单</span></a>
+                </li>
+
+                <li {if condition="$titleid eq 2 "}class="active"  {/if} >
+                    <div class="showtitle" style="width:100px;"><img src="__INDEX__/img/leftimg.png" />深圳力玛订单</div>
+                    <a href="{:U('Ordermanage/orderlist' ,['titleid' => 2] )}"><span class="sublist-icon glyphicon glyphicon-envelope"></span><span class="sub-title">深圳力玛订单</span></a>
+                </li>
+
+                <li {if condition="$titleid eq 1"}class="active"  {/if} >
+                    <div class="showtitle" style="width:100px;"><img src="__INDEX__/img/leftimg.png" />广州叁六订单</div>
+                    <a href="{:U('Ordermanage/orderlist' ,['titleid' => 1] )}"><span class="sublist-icon glyphicon glyphicon-bullhorn"></span><span class="sub-title">广州叁六订单</span></a>
+                </li>
+
+                <li {if condition="$titleid eq 4 "}class="active"  {/if} >
+                    <div class="showtitle" style="width:100px;"><img src="__INDEX__/img/leftimg.png" />域名订单</div>
+                    <a href="{:U('Ordermanage/orderlist' ,['titleid' => 4] )}"><span class="sublist-icon glyphicon glyphicon-credit-card"></span><span class="sub-title">域名订单</span></a>
+                </li>
+                <li >
+                    <div class="showtitle" style="width:100px;"><img src="__INDEX__/img/leftimg.png" />添加订单</div>
+                    <a href="{:U('Ordermanage/addorder')}"><span class="sublist-icon glyphicon glyphicon-credit-card"></span><span class="sub-title">添加订单</span></a>
+                </li>
+            </ul>
+        </div>
+        <div class="sBox">
+            <div class="subNav sublist-up"><span class="title-icon glyphicon glyphicon-chevron-up"></span><span class="sublist-title">账号管理</span></div>
+            <ul class="navContent" style="display:none">
+                <li class="active">
+                    <div class="showtitle" style="width:100px;"><img src="__INDEX__/img/leftimg.png" />账号管理</div>
+                    <a href="{:U('Admin/index')}"><span class="sublist-icon glyphicon glyphicon-user"></span><span class="sub-title">账号管理</span></a> </li>
+
+            </ul>
+        </div>
+    </div>
+</div>

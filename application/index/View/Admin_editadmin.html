@@ -1,0 +1,105 @@
+{include file="public/script" /}
+
+<body>
+{include file="public/nav" /}
+
+
+<div class="down-main">
+
+    {include file="public/left" /}
+
+    <div class="right-product right-full">
+        <section id="layout" ng-app="doc.ui-layout">
+            <div ui-layout class="layout-mock">
+                <ui-layout options="{ flow : 'cadumn' }">
+
+                    <div class="center-back right-back">
+                        <div class="container-fluid">
+                            <div class="info-center">
+                                <div class="page-header">
+                                    <div class="pull-left">
+                                        <h4>{$title}</h4>
+                                    </div>
+
+                                </div>
+
+                            <div class="row" >
+                                <form   action="{:U('Admin/doeditadmin')}" method="post"  >
+                                    <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
+                                        <label for="id">id</label>
+                                        <input type="text" class="form-control" id="id" name="id" value="{$id}" disabled="disabled" >
+                                        <input type="hidden" class="form-control"  name="id" value="{$id}"  >
+                                    </div>
+                                    <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
+                                        <label for="id">用户名</label>
+                                        <input type="text" class="form-control" id="username" name="username" value="{$username}" >
+                                    </div>
+                                    <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
+                                        <label for="id">原密码</label>
+                                        <input type="password" class="form-control"   name="ypassword" value="" >
+                                    </div>
+                                    <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
+                                        <label for="id">新密码</label>
+                                        <input type="password" class="form-control"   name="npassword" value="" >
+                                    </div>
+                                    <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
+                                        <label for="id">确认密码</label>
+                                        <input type="password" class="form-control"   name="qpassword" value="" >
+                                    </div>
+
+                                    <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
+                                        <button class="btn btn-default" type="submit">提交</button>
+                                    </div>
+
+
+                                </form>
+
+
+                            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </ui-layout>
+            </div>
+        </section>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    /*Angular-UI-layout*/
+    angular.module('doc.ui-layout', ['ui.layout']);
+
+
+
+
+</script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,210 @@
+{include file="public/script" /}
+
+<body>
+{include file="public/nav" /}
+
+
+<div class="down-main">
+
+    {include file="public/left" /}
+
+    <div class="right-product right-full">
+        <section id="layout" ng-app="doc.ui-layout">
+            <div ui-layout class="layout-mock">
+                <ui-layout options="{ flow : 'column' }">
+
+                    <div class="center-back right-back">
+                        <div class="container-fluid">
+                            <div class="info-center">
+                                <div class="page-header">
+                                    <div class="pull-left">
+                                        <h4>{$title}</h4>
+                                    </div>
+
+                                </div>
+
+
+                        <form action="{:U('Ordermanage/orderlist')}" id="searchform" method="get" >
+                                <div class="search-box row">
+                                    <div class="col-md-12">
+
+
+                                        <div class="form-group">
+                                            <span class="pull-left form-span">收款情况:</span>
+
+                                            <select name="ymsta" class="form-control" >
+                                                <option value="">全部</option>
+                                                <option value="no">未收</option>
+                                                <option value="yes">已收</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <span class="pull-left form-span">备案域名:</span>
+                                            <input type="text" class="form-control" placeholder="备案域名" name="beianym" value="{$send.beianym|default=''}" >
+                                        </div>
+                                        <div class="form-group">
+                                            <span class="pull-left form-span">对接人:</span>
+                                            <input type="text" class="form-control" placeholder="对接人" name="wzconcactor" value="{$send.wzconcactor|default=''}" >
+                                        </div>
+                                        <div class="form-group">
+                                            <span class="pull-left form-span">销售:</span>
+                                            <input type="text" class="form-control" placeholder="销售" name="shoper" value="{$send.shoper|default=''}" >
+                                        </div>
+
+
+
+
+                                        <input type="hidden" name="titleid" value="{$send.titleid}" class="form-control"/>
+                                        <div class="form-group btn-search">
+                                            <button class="btn btn-default" type="submit" ><span class="glyphicon glyphicon-search"></span> 搜索</button>
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+                        </form>
+
+                                <div class="search-box row">
+
+                                    <div class="col-md-4">
+                                        <div class="btn-group pull-left" role="group" aria-label="...">
+                                            <a type="button" class="btn btn-default" href="{:U('Ordermanage/addorder')}"><span class="glyphicon glyphicon-plus"></span> 新增</a>
+                                            <div class="btn-group" role="group">
+                                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <span class="glyphicon glyphicon-edit"></span> 审核
+                                                    <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="#">通过</a></li>
+                                                    <li><a href="#">不通过</a></li>
+                                                </ul>
+                                            </div>
+                                            <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span> 编辑</button>
+                                            <button type="button" class="btn btn-default" id="dispatchdel" url="{:U('Ordermanage/dodispatchdel')}"><span class="glyphicon glyphicon-trash"></span> 删除</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="clearfix"></div>
+
+
+
+
+
+                                <div class="table-margin">
+                                    <table class="table table-bordered table-header">
+                                        <thead>
+                                        <tr>
+                                            <td><input type="checkbox"  onClick="if(this.checked==true) { checkAll('id[]'); } else { clearAll('id[]'); }" /></td>
+                                            <td class="" style="width: 5%">id</td>
+                                            <td class="" style="width: 5%">收款情况</td>
+                                            <td class="" style="width: 20%">备案域名</td>
+                                            <td class="" style="width: 15%">产品类型</td>
+                                            <td class="" style="width: 15%">价格</td>
+                                            <td class="" style="width: 10%">销售名称</td>
+                                            <!--<td class="" style="width: 8%">情况</td>-->
+                                            <td class="" style="width: 10%">对接人</td>
+                                            <!--<td class="" style="width: 5%">技术领单</td>-->
+                                            <td class="" style="width: 10%"> 下单时间	</td>
+                                            <td class="" style="width: 10%">操作</td>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+
+
+                                        {volist name="orderlist" id="ol"}
+                                        <tr>
+                                            <td> <input type="checkbox"  name="id[]" value="{$ol.id}" class="ids" /></td>
+                                            <td>{$ol.id}</td>
+                                            <td>{$ol.ymsta}</td>
+                                            <td>{$ol.beianym}</td>
+                                            <td>{$ol.ympro}</td>
+                                            <td>{$ol.ymprice}</td>
+                                            <td>{$ol.shoper}</td>
+
+                                            <td>{$ol.wzconcactor}</td>
+
+                                            <td>{$ol.Addtime}</td>
+                                            <td >
+
+                                                <a href="{:U('Ordermanage/editorder' , ['id'=> $ol['id'] ] )}">详细</a>
+                                                <a href="{:U('Ordermanage/dodel' , ['id'=> $ol['id'] ] )}"   class="orderdel" >删除</a>
+                                            </td>
+
+                                        </tr>
+
+                                        {/volist}
+
+
+
+
+
+                                        </tbody>
+                                        <tfoot>
+                                        <tr>
+                                            <td colspan="12">
+                                                <div class="pull-right">
+                                                    <nav>
+
+
+                                                        {$page}
+
+
+                                                    </nav>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+
+
+
+
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </ui-layout>
+            </div>
+        </section>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    /*Angular-UI-layout*/
+    angular.module('doc.ui-layout', ['ui.layout']);
+    $('.pagination').find('a').click(function (e) {
+        e.preventDefault();
+        var href = $(this).attr('href');
+        var searchform = $('#searchform').serialize();
+        console.log(href);
+        console.log(searchform);
+        newhref = href + '&' + searchform;
+        location.href = newhref;
+
+
+    })
+
+
+
+
+</script>
+
+
+
+
+
+</body>
+</html>

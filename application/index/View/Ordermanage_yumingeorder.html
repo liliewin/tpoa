@@ -1,0 +1,142 @@
+{include file="public/script" /}
+
+<body>
+{include file="public/nav" /}
+
+
+<div class="down-main">
+
+    {include file="public/left" /}
+    <form class="form-inline" action="{:U('Ordermanage/doeditorder')}" method="post">
+    <div class="right-product right-full">
+        <section id="layout" ng-app="doc.ui-layout">
+            <div ui-layout class="layout-mock">
+                <ui-layout options="{ flow : 'column' }">
+
+                    <div class="center-back right-back">
+                        <div class="container-fluid">
+                            <div class="info-center">
+                                <div class="page-header">
+                                    <div class="pull-left">
+                                        <h4>{$title|default='订单修改'}</h4>
+                                    </div>
+
+                                </div>
+
+
+
+                                <div class="row">
+                                    <div class="col-md-6 col-xs-12 col-sm-8 col-md-offset-3 col-sm-offset-2">
+
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered table-hover table-condensed ">
+                                                <tr><td colspan="4" style="text-align: center">修改订单</td></tr>
+                                                <tr>
+                                                    <td >id：</td>
+                                                    <td>
+                                                        <input name="id" value="{$od.id}"  class="form-control" type="text" disabled="disabled">
+                                                        <input name="id" value="{$od.id}"  class="form-control" type="hidden"  >
+                                                    </td>
+                                                    <td>
+                                                        下单时间
+                                                    </td>
+                                                    <td>
+                                                        {$od.Addtime}
+                                                    </td>
+                                                </tr>
+
+                                                <tr class="ym" ><td>备案域名：</td><td colspan="3">
+                                                    <input name="beianym" value="{$od.beianym}" class="form-control" type="text" ></td></tr>
+                                                <tr class="ym"><td>产品类型：</td>
+                                                    <td colspan="3">
+                                                    <select name="ympro" id="ympro"  class="form-control" >
+
+                                                        <option value=".com"  {if condition="  $od['ympro'] eq '.com'  "} selected="selected" {/if}>.com</option>
+                                                        <option value=".cn" {if condition="  $od['ympro'] eq '.cn'  "} selected="selected" {/if} >.cn</option>
+                                                        <option value=".top" {if condition="  $od['ympro'] eq '.top'  "} selected="selected" {/if}>.top</option>
+                                                        <option value=".net" {if condition="  $od['ympro'] eq '.net'  "} selected="selected" {/if}>.net</option>
+                                                        <option value=".com.cn" {if condition="  $od['ympro'] eq '.com.cn'  "} selected="selected" {/if}>.com.cn</option>
+
+
+                                                    </select>
+                                                </td></tr>
+                                                <tr class="ym">
+                                                    <td>价格：</td>
+                                                    <td colspan="3"><input name="ymprice" value="{$od.ymprice}" class="form-control" type="text" ></td>
+                                                </tr>
+                                                <tr class="ym">
+                                                    <td>收款：</td>
+                                                    <td colspan="3">
+                                                    是 <input type="radio"  name="ymsta" value="yes" {if condition="  $od['ymsta'] eq 'yes'  "} checked="checked" {/if} >
+                                                    否 <input type="radio"  name="ymsta"  value="no" {if condition="  $od['ymsta'] eq 'no'  "} checked="checked" {/if} >
+                                                    </td>
+                                                </tr>
+                                                <tr class="ym">
+                                                    <td>销售名称：</td>
+                                                    <td colspan="3"><input name="shoper" value="{$od.shoper}" class="form-control" type="text"></td>
+                                                </tr>
+
+                                                <tr><td>网站对接人：</td><td colspan="3"><input name="wzconcactor" value="{$od.wzconcactor}" class="form-control" type="text"></td></tr>
+                                                <tr>
+                                                    <td  >
+
+                                                    </td>
+                                                    <td colspan="3">
+                                                        <input name="titleid" value="{$titleid}" type="hidden">
+                                                        <button class="btn btn-primary" type="submit">提交</button>
+                                                    </td>
+                                                </tr>
+
+                                            </table>
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </ui-layout>
+            </div>
+        </section>
+    </div>
+    </form>
+</div>
+
+
+<script type="text/javascript">
+    /*Angular-UI-layout*/
+    angular.module('doc.ui-layout', ['ui.layout']);
+
+
+
+
+</script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,130 @@
+{include file="public/script" /}
+
+<body>
+{include file="public/nav" /}
+
+
+<div class="down-main">
+
+    {include file="public/left" /}
+
+    <div class="right-product right-full">
+        <section id="layout" ng-app="doc.ui-layout">
+            <div ui-layout class="layout-mock">
+                <ui-layout options="{ flow : 'cadumn' }">
+
+                    <div class="center-back right-back">
+                        <div class="container-fluid">
+                            <div class="info-center">
+                                <div class="page-header">
+                                    <div class="pull-left">
+                                        <h4>{$title}</h4>
+                                    </div>
+
+                                </div>
+
+
+
+
+                                <div class="search-box row">
+
+                                    <div class="cad-md-4 ">
+                                        <div class="btn-group pull-left" rade="group" aria-label="...">
+                                            <a type="button" class="btn btn-default" href="{:U('Admin/addadmin')}"><span class="glyphicon glyphicon-plus"></span> 新增</a>
+
+
+                                            <!--<button type="button" class="btn btn-default" id="dispatchdel" url="{:U('Admin/dodispatchdel')}"><span class="glyphicon glyphicon-trash"></span> 删除</button>-->
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="clearfix"></div>
+
+
+
+
+
+                                <div class="table-margin">
+                                    <table class="table table-bordered table-header">
+                                        <thead>
+                                        <tr>
+                                            <td><input type="checkbox"  onClick="if(this.checked==true) { checkAll('id[]'); } else { clearAll('id[]'); }" /></td>
+                                            <td class="" style="width: 5%">id</td>
+                                            <td class="" style="width: 15%">用户名</td>
+                                            <td class="" style="width: 20%">最近登录ip</td>
+                                            <td class="" style="width: 20%">最近登录时间</td>
+                                            <td class="" style="width: 15%">登录次数</td>
+
+
+                                            <td class="" style="width: 10%">操作</td>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+
+
+                                        {volist name="admins" id="ad"}
+                                        <tr>
+                                            <td> <input type="checkbox"  name="id[]" value="{$ad.id}" class="ids" /></td>
+                                            <td>{$ad.id}</td>
+                                            <td>{$ad.username}</td>
+                                            <td>{$ad.lastloginIip}</td>
+                                            <td>{$ad.lastlogintime}</td>
+                                            <td>{$ad.logintimes}</td>
+
+                                            <td >
+
+                                                <a href="{:U('Admin/editadmin' , ['id'=> $ad['id'] ] )}">详细</a>
+                                                <a href="{:U('Admin/dodel' , ['id'=> $ad['id'] ] )}"   class="orderdel" >删除</a>
+                                            </td>
+
+                                        </tr>
+
+                                        {/volist}
+
+
+
+
+
+                                        </tbody>
+
+                                    </table>
+                                </div>
+
+
+
+
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </ui-layout>
+            </div>
+        </section>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    /*Angular-UI-layout*/
+    angular.module('doc.ui-layout', ['ui.layout']);
+
+
+
+
+
+</script>
+
+
+
+
+
+</body>
+</html>

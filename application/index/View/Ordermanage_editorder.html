@@ -1,0 +1,209 @@
+{include file="public/script" /}
+
+<body>
+{include file="public/nav" /}
+
+
+<div class="down-main">
+
+    {include file="public/left" /}
+    <form class="form-inline" action="{:U('Ordermanage/doeditorder')}" method="post">
+    <div class="right-product right-full">
+        <section id="layout" ng-app="doc.ui-layout">
+            <div ui-layout class="layout-mock">
+                <ui-layout options="{ flow : 'column' }">
+
+                    <div class="center-back right-back">
+                        <div class="container-fluid">
+                            <div class="info-center">
+                                <div class="page-header">
+                                    <div class="pull-left">
+                                        <h4>{$title|default='订单修改'}</h4>
+                                    </div>
+
+                                </div>
+
+
+
+                                <div class="row">
+                                    <div class="col-md-8 col-xs-12 col-sm-8 col-md-offset-2 col-sm-offset-2">
+
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered table-hover table-condensed ">
+                                                <tr><td colspan="4" style="text-align: center">修改订单</td></tr>
+                                                <tr>
+                                                    <td >id：</td>
+                                                    <td>
+                                                        <input name="id" value="{$od.id}"  class="form-control" type="text" disabled="disabled">
+                                                        <input name="id" value="{$od.id}"  class="form-control" type="hidden"  >
+                                                    </td>
+                                                    <td>
+                                                        下单时间
+                                                    </td>
+                                                    <td>
+                                                        {$od.Addtime}
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td >技术领单：</td>
+                                                    <td>
+                                                        <input name="jishunum" value="{$od.jishunum}"  class="form-control" type="text"  >
+
+                                                    </td>
+                                                    <td>
+                                                        续费情况
+                                                    </td>
+                                                    <td>
+                                                       <!-- <input type="date" name="xfks"   value="{$od.xfks}"   class="form-control" style="width: 150px;" >
+                                                        <input  type="date" name="xfrjs" value="{$od.xfrjs}"  class="form-control"  style="width: 150px;" ><br>
+                                                        续费人：<input name="xfr"  value="{$od.xfr}"  class="form-control"  >-->
+                                                       续费 {$maxrenewalarr.timesnum}次  ,有效期至 {$maxrenewalarr.endtime|date="Y-m-d",###}   <a href="{:U('Renewalc/detail',[ 'oid'=> $od['id'] ])}"  class="btn btn-primary  btn-xs">详细</a>
+
+                                                    </td>
+                                                </tr>
+                                                <tr><td>服务器编号：</td><td colspan="3" ><input name="wangzhannum" value="{$od.wangzhannum}" class="form-control" type="text" ></td></tr>
+                                                <tr><td>网站级别：</td><td colspan="3" ><input name="wangzhanjibie" value="{$od.wangzhanjibie}" class="form-control" type="text" ></td></tr>
+                                                <tr>
+                                                    <td style="width: 20%">产品类型：</td>
+                                                    <td colspan="3">
+                                                        <select class="form-control" name="pro_name" style="width: 150px;">
+                                                            {volist name="olxlist" id="olx"}
+                                                            <option  value="{$olx.id}" {if condition="$od['pro_name'] eq $olx['id'] " }selected="selected"{/if}  >{$olx.newlx}</option>
+                                                            {/volist}
+                                                        </select>
+                                                        <span><a href="#">新增类型</a></span>
+                                                        <span><a href="#">管理类型</a></span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>使用域名：</td>
+                                                    <td colspan="3">
+                                                        <input name="netname" value="{$od.netname}" class="form-control" type="text" ><br><br>
+                                                        价格：<input name="jiage" value="{$od.jiage}" class="form-control" type="text" ><br>
+
+                                                        备案域名：
+                                                        <label class="radio-inline">
+                                                             <input type="radio" id="bnetname1" value="yes" name="bnetname"   {if condition="$od['bnetname'] eq 'yes' " } checked="checked"{/if}  > 是
+                                                         </label>
+                                                        <label class="radio-inline">
+                                                            <input type="radio" id="bnetname2" value="no" name="bnetname" {if condition="$od['bnetname'] eq 'no' " } checked="checked"{/if}  > 否
+                                                        </label>
+                                                        <br>
+
+                                                        客户提供：
+                                                        <label class="radio-inline">
+                                                            <input type="radio" id="cnetname1" value="yes" name="cnetname" {if condition="$od['cnetname'] eq 'yes' " } checked="checked"{/if}  >是
+                                                        </label>
+                                                        <label class="radio-inline">
+                                                            <input type="radio" id="cnetname2" value="no" name="cnetname" {if condition="$od['cnetname'] eq 'no' " } checked="checked"{/if}   > 否
+                                                        </label>
+
+
+
+                                                    </td>
+                                                </tr>
+                                                <tr><td>公司名称：</td><td colspan="3" ><input name="realname" value="{$od.realname}" class="form-control" type="text" ></td></tr>
+                                                <tr><td>联系人：</td><td colspan="3" ><input name="contactor" value="{$od.contactor}" class="form-control" type="text" ></td></tr>
+                                                <tr><td>公司座机：</td><td colspan="3"><input name="tel" value="{$od.tel}" class="form-control" type="text" ></td></tr>
+                                                <tr><td>QQ：</td><td colspan="3"><input name="qq" value="{$od.qq}" class="form-control" type="text" ></td></tr>
+                                                <tr><td>传真：</td><td colspan="3"><input name="zipcode" value="{$od.zipcode}" class="form-control" type="text" ></td></tr>
+                                                <tr><td>手机号码：</td><td colspan="3"><input name="phone" value="{$od.phone}" class="form-control" type="text" ></td></tr>
+                                                <tr><td>电子邮箱：</td><td colspan="3"><input name="email" value="{$od.email}" class="form-control" type="text" ></td></tr>
+                                                <tr><td>联系地址：</td><td colspan="3"><input name="addess" value="{$od.addess}" class="form-control" type="text" ></td></tr>
+                                                <tr><td>模板地址：	</td><td colspan="3"><input name="mobannum" value="{$od.mobannum}" class="form-control" type="text" ><span style="color: red">*</span></td></tr>
+
+                                                <tr><td>网站要求：</td>
+                                                    <td colspan="3">
+                                                        <textarea class="form-control" rows="4" style="width: 80%" name="Content"    >{$od.Content}</textarea>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>总价：</td>
+                                                    <td colspan="3">
+                                                        <input name="price"   class="form-control" type="text" value="{$od.price}"  >
+                                                        已收：<input name="dingjin"   class="form-control" type="text"  style="width: 50px;" value="{$od.dingjin}" >
+                                                        未收：<input name="weikuan"   class="form-control" type="text"  style="width: 50px;" value="{$od.weikuan}" >
+                                                    </td>
+                                                </tr>
+                                                <tr><td>网站修改价格：</td><td colspan="3"><input name="cprice" value="{$od.cprice}" class="form-control" type="text" ></td></tr>
+                                                <tr><td>网站价格：</td><td colspan="3"><input name="jishu_price" value="{$od.jishu_price}" class="form-control" type="text" ></td></tr>
+                                                <tr><td>网站成本：</td><td colspan="3"><input name="wz_cb" value="{$od.wz_cb}" class="form-control" type="text" ></td></tr>
+                                                <tr><td>提成：</td><td colspan="3"><input name="wz_tc" value="{$od.wz_tc}" class="form-control" type="text" ></td></tr>
+                                                <tr><td>销售员名字：</td><td colspan="3"><input name="shoper" value="{$od.shoper}" class="form-control" type="text" ><span style="color: red">*</span></td></tr>
+                                                <tr><td>销售员手机号码：</td><td colspan="3"><input name="shoperphone" value="{$od.shoperphone}" class="form-control" type="text"></td></tr>
+                                                <tr><td>网站对接人：</td><td colspan="3"><input name="wzconcactor" value="{$od.wzconcactor}" class="form-control" type="text"></td></tr>
+                                                <tr>
+                                                    <td  >
+
+                                                    </td>
+                                                    <td colspan="3">
+                                                        <input name="titleid" value="{$titleid}" type="hidden">
+                                                        <button class="btn btn-primary" type="submit">提交</button>
+                                                    </td>
+                                                </tr>
+
+                                            </table>
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </ui-layout>
+            </div>
+        </section>
+    </div>
+    </form>
+</div>
+
+
+<script type="text/javascript">
+    /*Angular-UI-layout*/
+    angular.module('doc.ui-layout', ['ui.layout']);
+    $('.pagination').find('a').click(function (e) {
+        e.preventDefault();
+        var href = $(this).attr('href');
+        var searchform = $('#searchform').serialize();
+        console.log(href);
+        console.log(searchform);
+        newhref = href + '&' + searchform;
+        location.href = newhref;
+
+
+    })
+
+
+
+
+</script>
+
+
+
+
+
+</body>
+</html>
