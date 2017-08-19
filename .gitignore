@@ -3,6 +3,4 @@ composer.lock
 *.log
 .DS_Store
 !/thinkphp/
-/.idea/
 *.zip
-*.rar

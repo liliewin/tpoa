@@ -15,11 +15,11 @@ return [
     // 服务器地址
     'hostname'       => '127.0.0.1',
     // 数据库名
-    'database'       => 'tpoa',
+    'database'       => 'wywloa',
     // 用户名
-    'username'       => 'wanyuwl',
+    'username'       => 'root',
     // 密码
-    'password'       => 'wywl1234',
+    'password'       => '6689310',
     // 端口
     'hostport'       => '3306',
     // 连接dsn
