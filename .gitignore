@@ -6,3 +6,4 @@ composer.lock
 /.idea/
 *.zip
 *.rar
+/runtime/
