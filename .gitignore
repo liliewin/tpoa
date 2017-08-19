@@ -1,9 +1,9 @@
 .idea
 composer.lock
 *.log
+/runtime/
 .DS_Store
 !/thinkphp/
 /.idea/
 *.zip
 *.rar
-runtime
